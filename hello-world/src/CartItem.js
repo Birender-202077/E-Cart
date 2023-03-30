@@ -5,12 +5,17 @@ class CartItem extends React.Component{
         super();
         this.state = {
             price: 'Rs 10000',
-            qty: 'Qt:1',
+            qty: 1,
             title: 'Mobile Phone',
             img: ''
 
         }
     }
+
+    increaseQuantity = () => {
+        console.log(this.state)
+    }
+
     render(){
         const{title,price,qty} = this.state
         return(
@@ -21,15 +26,28 @@ class CartItem extends React.Component{
 
                 <div className='right-block'>
                     {/* <div style={{fontSize: 25}}>{this.state.title}</div> */}
-                    
+
                     <div style={{fontSize: 25}}>{title}</div>
                     <div style={{color: '#777'}}>{price}</div>
                     <div style={{color: '#777'}}>{qty}</div>
                     <div className='cart-item-actions'>
-                        {/* {buttons} */}
-                        <img alt="increase" src= "https://cdn-icons-png.flaticon.com/512/10238/10238177.png" className='action-icons' />
-                        <img alt="decrease" src= "https://cdn-icons-png.flaticon.com/512/10238/10238638.png" className='action-icons' />
-                        <img alt="delete" src= "https://cdn-icons-png.flaticon.com/512/3221/3221897.png" className='action-icons' />
+                        
+                        <img 
+                        alt="increase"
+                        src= "https://cdn-icons-png.flaticon.com/512/10238/10238177.png"
+                        className='action-icons'
+                        // onClick={this.increaseQuantity.bind(this)}
+                        onClick={this.increaseQuantity} />
+
+                        <img 
+                        alt="decrease" 
+                        src= "https://cdn-icons-png.flaticon.com/512/10238/10238638.png" 
+                        className='action-icons' />
+
+                        <img 
+                        alt="delete" 
+                        src= "https://cdn-icons-png.flaticon.com/512/3221/3221897.png" 
+                        className='action-icons' />
 
                     </div>
 
