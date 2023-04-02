@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CartItem extends React.Component{
+const CartItem = (props) => {
    
 
     // increaseQuantity = () => {
@@ -24,25 +24,25 @@ class CartItem extends React.Component{
     //     });
     // }
 
-    render(){
-        console.log('render',this.props)
+   
+        console.log('render',props)
         // const{title,price,qty} = this.state
-        const{title,price,qty} = this.props.product
+        const{title,price,qty} = props.product
 
         //destructuring of increaser and decrease function
-        const{product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = this.props;
+        const{product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = props;
 
         return(
             <div className='cart-item'>
                 <div className='left-block'>
-                    <img style={styles.images}/>
+                    <img style={styles.images} src={product.img} alt="material"/>
                 </div>
 
                 <div className='right-block'>
                     {/* <div style={{fontSize: 25}}>{this.state.title}</div> */}
 
                     <div style={{fontSize: 25}}>{title}</div>
-                    <div style={{color: '#777'}}>{price}</div>
+                    <div style={{color: '#777'}}>Rs. {price}</div>
                     <div style={{color: '#777'}}>Qty: {qty}</div>
                     <div className='cart-item-actions'>
                         
@@ -75,7 +75,7 @@ class CartItem extends React.Component{
             </div>
         )
     }
-}
+
 
 const styles = {
     images: {
